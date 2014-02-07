@@ -952,6 +952,8 @@ def err_capture_of_abstract_type : Error<
   "by-copy capture of value of abstract type %0">;
 def err_capture_of_incomplete_type : Error<
   "by-copy capture of variable %0 with incomplete type %1">;
+def err_capture_default_non_local : Error<
+  "non-local lambda expression cannot have a capture-default">;
 
 def err_multiple_final_overriders : Error<
   "virtual function %q0 has more than one final overrider in %1">; 
@@ -4555,8 +4557,6 @@ def warn_deprecated_string_literal_conversion : Warning<
 def ext_deprecated_string_literal_conversion : ExtWarn<
   "ISO C++11 does not allow conversion from string literal to %0">,
   InGroup<CXX11CompatDeprecatedWritableStr>, SFINAEFailure;
-def warn_deprecated_string_literal_conversion_c : Warning<
-  "dummy warning to enable -fconst-strings">, InGroup<DeprecatedWritableStr>, DefaultIgnore;
 def err_realimag_invalid_type : Error<"invalid type %0 to %1 operator">;
 def err_typecheck_sclass_fscope : Error<
   "illegal storage class on file-scoped variable">;
